@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TipCalculator</string>
+    <string name="tip_prompt">Choose a Tip</string>
+
+        <string-array name="tipArray">
+            <item>10%</item>
+            <item>15%</item>
+            <item>20%</item>
+        </string-array>
+    </resources>
+
+
