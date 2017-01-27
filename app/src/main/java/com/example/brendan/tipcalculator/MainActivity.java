@@ -2,24 +2,20 @@ package com.example.brendan.tipcalculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
-import android.app.Activity;
-import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.CompoundButton;
 import android.widget.CheckBox;
 
 
 public class MainActivity extends AppCompatActivity {
+
+
+    boolean hstClick;
+    double spin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +29,63 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    public void onCalculate(View view){
+
+        Button editText = (Button) findViewById(R.id.button3);
+
+
+
+
+
+
+
+    }
+
+
+// gets spinner value
+// returns the spinner value as  a double
+    public double getspinnerValue(View view){
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner2);
+        String tip = spinner.getSelectedItem().toString();
+
+        double dTip = Double.parseDouble(tip);
+
+        return dTip;
+    }
+
+
+// x represents the bill cost and Y represents the tip %
+
+    public double  calculate(double bill , double tip, boolean hasHST ){
+
+        double total;
+
+        // if HST is enabled
+        if (hasHST){
+
+            total =   .13 * (bill* tip);
+
+
+
+
+            // no HST
+        }else {
+
+            total =  (bill* tip);
+        }
+
+        return total;
+
+
+    }
 
     // attempt 3
     // is working as expected oddly
 
     public void onCheckboxClicked(View view) {
-        // Is the view now checked?
+
+
         CheckBox hstBox = (CheckBox) findViewById(R.id.checkBox2);
 
         boolean checked = ((CheckBox) view).isChecked();
@@ -49,17 +96,20 @@ public class MainActivity extends AppCompatActivity {
                 if (checked){
 
                     Toast.makeText(this, "checked", Toast.LENGTH_LONG).show();
-
+                    hstClick=true;
 
                 }
                 // if the HST option isn't enabled
                 else{
 
+                    hstClick= true;
                     //
                 }
 
 
         }
+
+
 
 
 
