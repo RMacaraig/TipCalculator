@@ -25,19 +25,46 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox2);
-
-
-        if (checkBox.isChecked()){
-
-
-
-        }
     }
 
 
 
-    //TODO: make check() method
+
+
+
+
+
+    // attempt 3
+    // is working as expected oddly
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        CheckBox hstBox = (CheckBox) findViewById(R.id.checkBox2);
+
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // would use switch if needed for multiple boxes
+
+                // if button is pressed
+                if (checked){
+
+                    Toast.makeText(this, "checked", Toast.LENGTH_LONG).show();
+
+
+                }
+                // if the HST option isn't enabled
+                else{
+
+                    //
+                }
+
+
+        }
+
+
+
+    //TODO: To be finished soon checkInput()
+
     /*
     This method checks if the bill amount entered is a valid number
      */
@@ -55,41 +82,31 @@ public boolean checkInput(View view){
     float number;
 
     try {
+
         // if parsed as float
         number = Float.parseFloat(input);
-        isValid= true;
-        return isValid;
 
+        return true;
 
         // input was not valid
     } catch (NumberFormatException e) {
 
         Toast.makeText(this, "Not a Valid Input!", Toast.LENGTH_LONG).show();
-        isValid = false;
-        return isValid;
+
+        return false;
 
     }
 
-
-
-
-
-
+  }
 
 }
 
 
-
-
-
-}
-
-//TODO: spinner has been populated with entries
 /*
 
-need to code the ogic for the app now. Below if the order to follow
+need to code the logic for the app now. Below if the order to follow
 
-- onCalculate() : create a listener for this . the method will need the following functionallity
+- onCalculate() : create a listener for this . the method will need the following functionality
 
  - checks : takes the entered value for the bill amount , checks if HST is enabled (use boolean value), checks what the tip percent is from the spinner( uses it to calculate total)
 
